@@ -1,0 +1,11 @@
+{
+  "storeId": "store-09121",
+  "storeName": "Shake Shack",
+  "storeAddress": {
+    "street":"Orange Blossom Trail",
+    "number": 8001,
+    "postalCode": "FL 32809",
+    "city" : "Orlando",
+    "state" : "Florida"
+  }
+}

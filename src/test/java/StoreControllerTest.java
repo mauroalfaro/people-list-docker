@@ -1,7 +1,4 @@
 import com.alfarosoft.peoplelist.PeopleListApp;
-import com.alfarosoft.peoplelist.exception.AddressValidationException;
-import com.alfarosoft.peoplelist.model.Address;
-import com.alfarosoft.peoplelist.model.Employee;
 import com.alfarosoft.peoplelist.model.Store;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.Test;
@@ -109,24 +106,4 @@ public class StoreControllerTest {
         assertEquals(HttpStatus.OK.value(), mvcResult.getResponse().getStatus());
     }
 
-    @Test
-    public void whenPostingStoresWithInvalidAddressShouldReturnBadRequest() throws Exception{
-        File file = ResourceUtils.getFile("classpath:storeInvalidExample.json");
-        String body = FileUtils.readFileToString(file);
-
-        Store store = new Store();
-        store.setId("123");
-        Address address = new Address();
-        address.setState("BsAs");
-        store.setAddress(address);
-
-        when(storeService.addStore(store)).thenThrow(AddressValidationException.class);
-
-        MvcResult mvcResult = mvc.perform(
-                MockMvcRequestBuilders.post("/services/stores/add").contentType(MediaType.APPLICATION_JSON).content(body)
-                        .accept(MediaType.APPLICATION_JSON)).andExpect(MockMvcResultMatchers.status().isBadRequest())
-                .andReturn();
-
-        assertEquals(HttpStatus.BAD_REQUEST.value(), mvcResult.getResponse().getStatus());
-    }
 }

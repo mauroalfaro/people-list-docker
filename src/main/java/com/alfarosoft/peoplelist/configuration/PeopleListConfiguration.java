@@ -1,10 +1,9 @@
 package com.alfarosoft.peoplelist.configuration;
 
+import com.alfarosoft.peoplelist.database.HibernateSessionFactory;
 import com.alfarosoft.peoplelist.service.CustomerService;
 import com.alfarosoft.peoplelist.service.EmployeeService;
 import com.alfarosoft.peoplelist.service.StoreService;
-import com.alfarosoft.peoplelist.validation.AddressValidation;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.annotation.RequestScope;
@@ -14,24 +13,25 @@ public class PeopleListConfiguration {
 
     @Bean
     @RequestScope
-    public CustomerService customerService(){
-        return new CustomerService();
+    public CustomerService customerService() throws Exception {
+        return new CustomerService(hibernateSessionFactory());
     }
 
     @Bean
     @RequestScope
-    public EmployeeService employeeService(){
-        return new EmployeeService();
+    public EmployeeService employeeService() throws Exception {
+        return new EmployeeService(hibernateSessionFactory());
     }
 
     @Bean
     @RequestScope
-    public StoreService storeService(){
-        return new StoreService();
+    public StoreService storeService() throws Exception {
+        return new StoreService(hibernateSessionFactory());
     }
 
     @Bean
     @RequestScope
-    @ConditionalOnProperty(name="peopleList.addressValidationEnabled", havingValue="true")
-    public AddressValidation addressValidation() {return new AddressValidation();}
+    public HibernateSessionFactory hibernateSessionFactory(){
+        return new HibernateSessionFactory();
+    }
 }

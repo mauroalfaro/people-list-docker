@@ -2,35 +2,48 @@ package com.alfarosoft.peoplelist.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
+@Entity
+@Table(name = "Customer")
 public class Customer {
 
     @JsonProperty("customerId")
+    @Id
     private String id = null;
 
     @JsonProperty("customerName")
+    @Column(name = "CUSTOMER_NAME")
     private String name = null;
 
     @JsonProperty("customerSurname")
+    @Column(name = "CUSTOMER_SURNAME")
     private String surname= null;
 
     @JsonProperty("loyaltyId")
+    @Column(name = "LOYALTY_ID")
     private String loyaltyId = null;
 
     @JsonProperty("customerAddress")
-    private Address address = null;
+    @Column(name = "CUSTOMER_ADDRESS")
+    private String address = null;
 
     @JsonProperty("customerPhone")
+    @Column(name = "CUSTOMER_PHONE")
     private String phone = null;
 
     @JsonProperty("customerEmail")
+    @Column(name = "CUSTOMER_EMAIL")
     private String email = null;
 
     public Customer() {
     }
 
-    public Customer(String id, String name, String surname, String loyaltyId, Address address, String phone, String email) {
+    public Customer(String id, String name, String surname, String loyaltyId, String address, String phone, String email) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -72,11 +85,11 @@ public class Customer {
         this.loyaltyId = loyaltyId;
     }
 
-    public Address getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(Address address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 

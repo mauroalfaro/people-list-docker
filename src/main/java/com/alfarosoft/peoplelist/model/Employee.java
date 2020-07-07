@@ -2,35 +2,49 @@ package com.alfarosoft.peoplelist.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
+@Entity
+@Table(name = "Employee")
 public class Employee {
 
     @JsonProperty("employeeId")
+    @Id
     private String id = null;
 
     @JsonProperty("employeeName")
+    @Column(name = "EMPLOYEE_NAME")
     private String name = null;
 
     @JsonProperty("employeeSurname")
+    @Column(name = "EMPLOYEE_SURNAME")
     private String surname = null;
 
     @JsonProperty("employeeAddress")
-    private Address address = null;
+    @Column(name = "EMPLOYEE_ADDRESS")
+    private String address = null;
 
     @JsonProperty("employeePhone")
+    @Column(name = "EMPLOYEE_PHONE")
     private String phone = null;
 
     @JsonProperty("employeeEmail")
+    @Column(name = "EMPLOYEE_EMAIL")
     private String email = null;
 
     @JsonProperty("dateHired")
+    @Column(name = "DATE_HIRED")
     private String dateHired = null;
 
     @JsonProperty("isActiveEmployee")
+    @Column(name = "ACTIVE_EMPLOYEE")
     private boolean isActiveEmployee = true;
 
-    public Employee(String id, String name, String surname, Address address, String phone, String email, String dateHired, boolean isActiveEmployee) {
+    public Employee(String id, String name, String surname, String address, String phone, String email, String dateHired, boolean isActiveEmployee) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -68,11 +82,11 @@ public class Employee {
         this.surname = surname;
     }
 
-    public Address getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(Address address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 

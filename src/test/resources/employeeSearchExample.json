@@ -3,13 +3,7 @@
   "employeeId": "1194",
   "employeeName": "Empleado",
   "employeeSurname": "Delmes",
-  "employeeAddress": {
-    "street":"Ramon Franco",
-    "number": 111,
-    "postalCode": "CP1875",
-    "city" : "Avellaneda",
-    "state" : "Florida"
-  },
+  "employeeAddress": "Ramon Franco 111, Wilde, Avellaneda",
   "employeePhone": "1133445566",
   "employeeEmail": "empleado@falopa.com",
   "dateHired": "01/01/2001",

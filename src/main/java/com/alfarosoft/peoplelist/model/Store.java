@@ -2,20 +2,29 @@ package com.alfarosoft.peoplelist.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Objects;
 
+@Entity
+@Table(name = "Store")
 public class Store {
 
     @JsonProperty("storeId")
+    @Id
     private String id = null;
 
     @JsonProperty("storeName")
+    @Column(name = "STORE_NAME")
     private String storeName = null;
 
     @JsonProperty("storeAddress")
-    private Address address = null;
+    @Column(name = "STORE_ADDRESS")
+    private String address = null;
 
-    public Store(String id, String storeName, Address addresss) {
+    public Store(String id, String storeName, String addresss) {
         this.id = id;
         this.storeName = storeName;
         this.address = address;
@@ -40,11 +49,11 @@ public class Store {
         this.storeName = storeName;
     }
 
-    public Address getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(Address address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 

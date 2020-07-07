@@ -1,7 +1,4 @@
 import com.alfarosoft.peoplelist.PeopleListApp;
-import com.alfarosoft.peoplelist.exception.AddressValidationException;
-import com.alfarosoft.peoplelist.model.Address;
-import com.alfarosoft.peoplelist.model.Customer;
 import com.alfarosoft.peoplelist.model.Employee;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.Test;
@@ -108,24 +105,4 @@ public class EmployeeControllerTest {
         assertEquals(HttpStatus.OK.value(), mvcResult.getResponse().getStatus());
     }
 
-    @Test
-    public void whenPostingEmployeesWithInvalidAddressShouldReturnBadRequest() throws Exception{
-        File file = ResourceUtils.getFile("classpath:employeeInvalidExample.json");
-        String body = FileUtils.readFileToString(file);
-
-        Employee employee = new Employee();
-        employee.setId("123");
-        Address address = new Address();
-        address.setState("BsAs");
-        employee.setAddress(address);
-
-        when(employeeService.addEmployee(employee)).thenThrow(AddressValidationException.class);
-
-        MvcResult mvcResult = mvc.perform(
-                MockMvcRequestBuilders.post("/services/employees/add").contentType(MediaType.APPLICATION_JSON).content(body)
-                        .accept(MediaType.APPLICATION_JSON)).andExpect(MockMvcResultMatchers.status().isBadRequest())
-                .andReturn();
-
-        assertEquals(HttpStatus.BAD_REQUEST.value(), mvcResult.getResponse().getStatus());
-    }
 }

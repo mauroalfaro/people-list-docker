@@ -19,7 +19,7 @@ CREATE TABLE Employee (
     ACTIVE_EMPLOYEE tinyint(1)
 );
 
-CREATE TABLE Store(
+CREATE TABLE Store (
     Id varchar(11),
     STORE_NAME varchar(255),
     STORE_ADDRESS varchar(255)

@@ -1,4 +1,4 @@
-# people-list-docker (WIP)
+# people-list-docker 
 people-list-mocked project with a MySQL database running on a Docker container. Quoting people-list-mocked readme:
 
 # people-list-mocked
@@ -10,6 +10,7 @@ Includes:
 - Mockito for MVC unit testing
 - Java 8 lambdas
 - Docker compose for MySQL database connection
+- OpenApi UI to test the app
 
 In order to test the app, first you have to start the db. Head to the resources package where the Docker compose file is located and run: 
 docker-compose up (or docker-compose up -d if you want to detach)

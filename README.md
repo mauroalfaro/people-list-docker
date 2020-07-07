@@ -9,5 +9,9 @@ Includes:
 - Spring Boot Test
 - Mockito for MVC unit testing
 - Java 8 lambdas
-- Docker structure for MySQL database connection
+- Docker compose for MySQL database connection
+
+In order to test the app, first you have to start the db. Head to the resources package where the Docker compose file is located and run: 
+docker-compose up (or docker-compose up -d if you want to detach)
+This will start the MySQL db. You can use MySQL Workbench to test connection.
 

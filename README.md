@@ -14,4 +14,4 @@ Includes:
 In order to test the app, first you have to start the db. Head to the resources package where the Docker compose file is located and run: 
 docker-compose up (or docker-compose up -d if you want to detach)
 This will start the MySQL db. You can use MySQL Workbench to test connection.
-
+You can use docker-compose logs to check the logs from the db.

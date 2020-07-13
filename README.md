@@ -1,5 +1,6 @@
 # people-list-docker 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/mauroalfaro/people-list-docker)
+
 people-list-mocked project with a MySQL database running on a Docker container
 
 Basic Spring application with 3 controllers, developed with the objective to help aspiring Spring developers to learn basic Spring features.

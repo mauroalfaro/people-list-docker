@@ -1,5 +1,5 @@
 # people-list-docker 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/mauroalfaro/people-list-docker)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/mauroalfaro/people-list-docker)](https://github.com/mauroalfaro/people-list-docker/releases/tag/1.0)
 
 people-list-mocked project with a MySQL database running on a Docker container
 
